@@ -4,7 +4,7 @@ import sys
 import codecs
 #reload(sys)
 
-fin = open('/Users/gloria/Documents/Project/coding_projects/KEGG_enrichment/ref/UniprotId_GeneName_RefseqId.TXT','r')
+fin = open('/ref/UniprotId_GeneName_RefseqId.TXT','r')
 dic_AC_GN={}
 dic_GN_AC = {}
 for line in fin.readlines():
@@ -21,7 +21,7 @@ for line in fin.readlines():
       dic_GN_AC[GN] = AC
 fin.close()
 
-fin = open("/Users/gloria/Documents/Project/HCC/Data/Protein/CNHPP.final.quantile.TPconbine.txt",'r')
+fin = open("/Data/Protein/expression.txt",'r')
 dic_ac_pro_name={}
 dic_GN_pro_name={}
 
@@ -39,7 +39,7 @@ fin.close()
 
 
 dic_TTD_approved={}
-fin = open("/Users/gloria/Documents/Project/coding_projects/TTD/TTD_uniprot_success_new.txt")
+fin = open("/ref/TTD/TTD_uniprot_success_new.txt")
 for line in fin.readlines():
   key = line.strip().split('\t')[-1]
   dic_TTD_approved[key]=''
@@ -53,7 +53,7 @@ for line in fin.readlines():
 fin.close()
 
 dic_TTD_research={}
-fin = open("/Users/gloria/Documents/Project/coding_projects/TTD/TTD_uniprot_research.txt")
+fin = open("ref/TTD/TTD_uniprot_research.txt")
 for line in fin.readlines():
   key = line.strip().split('\t')[-1]
   dic_TTD_research[key]=''
@@ -75,12 +75,10 @@ fin.close()
 print("start parse....")
 #sys.setdefaultendcoding('utf-8')
 #inF = '/Users/gloria/Documents/Project/coding_projects/Drugbank/Drugbank_full_database.xml'
-inF = '/Users/gloria/Documents/Project/coding_projects/Drugbank/full_database_2017.11.3.xml'
+inF = '/ref/Drugbank/full_database_2017.11.3.xml'
 root = ET.parse(inF)
 namespaces = {'ns': 'http://www.drugbank.ca'}
 print("root.findall....")
-
-
 
 druglist = root.findall("./ns:drug",namespaces)
 id = 0
